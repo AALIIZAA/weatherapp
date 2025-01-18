@@ -2,41 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Data Visualization</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Station</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Data Visualization</h1>
-    <p>
-        {% if user.is_superuser %}
-            You are viewing all available data.
-        {% else %}
-            You are viewing the latest data from the last 24 hours.
-        {% endif %}
-    </p>
-    <div id="chart"></div>
-    <script>
-        var data = [
-            {
-                x: {{ data|json_script:"timestamps" }},
-                y: {{ data|json_script:"temperatures" }},
-                type: 'scatter',
-                name: 'Temperature'
-            },
-            {
-                x: {{ data|json_script:"timestamps" }},
-                y: {{ data|json_script:"pressures" }},
-                type: 'scatter',
-                name: 'Pressure'
-            },
-            {
-                x: {{ data|json_script:"timestamps" }},
-                y: {{ data|json_script:"altitudes" }},
-                type: 'scatter',
-                name: 'Altitude'
-            }
-        ];
-        Plotly.newPlot('chart', data);
-    </script>
+    <header>
+        <h1>Weather Station Dashboard 🌤️</h1>
+    </header>
+    
+    <main>
+        <section class="weather-info">
+            <h2>Current Weather</h2>
+            <div id="weather-data">
+                <p>Altitude: <span id="altitude">--</span> m</p>
+                <p>Temperature: <span id="temperature">--</span> °C <span id="weather-emoji">🌥️</span></p>
+                <p>Humidity: <span id="humidity">--</span> %</p>
+                <p>Pressure :</span id="pressure">--</span> pa</p>
+                
+            </div>
+            <button id="fetch-weather">Get Weather</button>
+        </section>
+    </main>
+
+    <footer>
+        <p> Weather Station</p>
+    </footer>
 </body>
 </html>
