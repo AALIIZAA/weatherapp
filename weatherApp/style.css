@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.icon {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.icon img {
+    width: 100px;
+    height: 100px;
+}
+
+.icon p {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.icon:hover {
+    transform: scale(1.5);
+}

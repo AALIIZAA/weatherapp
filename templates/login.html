@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+
+    <!-- Add the {% load static %} tag to load static files -->
+    {% load static %}
+
+    <!-- External CSS Link if you need to use an external stylesheet -->
+    <!-- <link rel="stylesheet" href="{% static 'superstyle.css' %}"> -->
+
+    <style>
+        /* Apply general styling for the page */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url("{% static 'backgroundimages.jpeg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Container for the icons */
+        .icon-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-top: -100px;
+        }
+
+        /* Styling for each icon block */
+        .icon {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 150px;
+            cursor: pointer;
+        }
+
+        /* Hover effect for icon */
+        .icon:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .icon img {
+            width: 120px;
+            height: auto;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .icon img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Styling for icon labels */
+        .icon p {
+            color: #fff;
+            font-size: 1.2em;
+            margin-top: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Add a subtle blur effect */
+        .icon-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+
+    </style>
+
+    <!-- External JS Link -->
+    <script src="{% static 'script.js' %}"></script>
+</head>
+
+<body>
+    <div class="icon-container">
+        <div class="icon" id="super-admin">
+            <img src="{% static 'super-admin-icon.webp' %}" alt="Super Admin Icon">
+            <p>Admin</p>
+        </div>
+        <div class="icon" id="pro-admin">
+            <img src="{% static 'userimage.webp' %}" alt="Pro Admin Icon">
+            <p>Pro User</p>
+        </div>
+        <div class="icon" id="admin">
+            <img src="{% static 'user.webp' %}" alt="Admin Icon">
+            <p>User</p>
+        </div>
+    </div>
+</body>
+
+</html>

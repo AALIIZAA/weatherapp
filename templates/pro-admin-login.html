@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Admin Login</title>
+    <link rel="stylesheet" href="superstyle.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h1> Pro User Login</h1>
+        <form id="proAdminLoginForm">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('proAdminLoginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Add your Pro Admin login logic here
+            window.location.href = '../weatherstation/index.html';
+            //alert('Pro Admin logged in');
+        });
+    </script>
+</body>
+
+</html>

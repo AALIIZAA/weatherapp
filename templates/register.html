@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h2>Register</h2>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label class="username">Username
+            <input type="text" placeholder="Username" name="username">
+        </label>
+
+        <label class="email">Email
+            <input type="email" placeholder="Email" name="email">
+        </label>
+
+        <label class="password">Password
+            <input type="password" placeholder="Password" name="password">
+        </label>
+
+        <label class="password2">Confirm Password
+            <input type="password" placeholder="Confirm Password" name="password2">
+        </label>
+
+        <label class="role">Role
+            <select name="role">
+                <option value="normaluser">normaluser</option>
+                <option value="superuser">superuser</option>
+            </select>
+        </label>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if form.errors %}
+        <p style="color: red;">Please fix the errors above.</p>
+    {% endif %}
+</body>
+</html>

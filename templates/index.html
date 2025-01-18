@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Visualization</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Data Visualization</h1>
+    <p>
+        {% if user.is_superuser %}
+            You are viewing all available data.
+        {% else %}
+            You are viewing the latest data from the last 24 hours.
+        {% endif %}
+    </p>
+    <div id="chart"></div>
+    <script>
+        var data = [
+            {
+                x: {{ data|json_script:"timestamps" }},
+                y: {{ data|json_script:"temperatures" }},
+                type: 'scatter',
+                name: 'Temperature'
+            },
+            {
+                x: {{ data|json_script:"timestamps" }},
+                y: {{ data|json_script:"pressures" }},
+                type: 'scatter',
+                name: 'Pressure'
+            },
+            {
+                x: {{ data|json_script:"timestamps" }},
+                y: {{ data|json_script:"altitudes" }},
+                type: 'scatter',
+                name: 'Altitude'
+            }
+        ];
+        Plotly.newPlot('chart', data);
+    </script>
+</body>
+</html>
